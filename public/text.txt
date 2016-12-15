@@ -1,0 +1,16 @@
+POST /save HTTP/1.1
+Accept:                    text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:           gzip, deflate, br
+Accept-Language:           ru,en;q=0.8
+Cache-Control:             no-cache
+Connection:                keep-alive
+Content-Length:            118445
+Content-Type:              multipart/form-data; boundary=----WebKitFormBoundaryXEfiK1QPJ9mkSraT
+Cookie:                    _ym_uid=1469544704952390948; BX_USER_ID=991a54657513eae03aa782ff172798b3; Phpstorm-97167558=8cb3e80d-84c3-44c8-a5c5-0e02390e4276; _ga=GA1.1.356633643.1475139062; Webstorm-f90e5034=eb4242ae-2545-4d9e-b73a-775de710f867; BITRIX_CONVERSION_CONTEXT_s1=%7B%22ID%22%3A2%2C%22EXPIRE%22%3A1478465940%2C%22UNIQUE%22%3A%5B%22conversion_visit_day%22%5D%7D; jv_visits_count_zWRzHXBnZP=12; BITRIX_SM_SALE_UID=08c9ba8ce790406f6e6f6ad49d476a20; BITRIX_SM_LOGIN=dim%40uatrade.net; BITRIX_SM_GUEST_ID=988; BITRIX_SM_LAST_VISIT=06.11.2016+20%3A10%3A18; XSRF-TOKEN=eyJpdiI6InV0UGtmUHhuVmppUnhNUklKMk9CZnc9PSIsInZhbHVlIjoiYUcwdGJ6elZkNlM5c0JQcGlmeDExUUltWHFaSmhEbEVEdzh3SHFIOUc5cjBNd0RldXZENjlMK24zcGJBMlVWb3VPY3Y1V1FLR21XV2JKSkpRRHY4R1E9PSIsIm1hYyI6ImJiOWMyODNmNTFlNjc3OWQwMGRkYTBiOTJlODNjYTgzZjY3YzgwOWM0ZDZhOTJhODYxYjhiMmVkYTI0MGIyOGIifQ%3D%3D; laravel_session=eyJpdiI6Imp2cnpGbTgweFQ4eGtWZVZmUjBaaFE9PSIsInZhbHVlIjoia2lUODArS1ZGd0JITFJHM1VWXC9PaTd5bEZPQ1VTTVFVeHZybndzRmhtRWUrMTkydEQwemxCY283Tk5cL1B2ZGw1WWhIZXVnNlhvWXlJUnREQjJCK2wxUT09IiwibWFjIjoiMDZmN2VhNmI0ZTM5NTM4MDJhZDAwNzFlMWU3MTI4OTM4ZmI2YWVlMTI2NzdlNWIzMzBkODlkMjgxMGJkMjEzYyJ9
+Host:                      localhost:8000
+Origin:                    http://localhost:8000
+Pragma:                    no-cache
+Referer:                   http://localhost:8000/
+Upgrade-Insecure-Requests: 1
+User-Agent:                Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36
+
