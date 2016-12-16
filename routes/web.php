@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
-    return 'Привет, мир!';
-    //return view('welcome');
+    return view('welcome');
 });
+
+Route::post('/vk', 'VkController@index');
