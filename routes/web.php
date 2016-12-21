@@ -14,6 +14,9 @@
 use ATehnix\VkClient\Auth;
 
 use GuzzleHttp\Client as HttpClient;
+use InstagramAPI\Instagram;
+
+
 
 
 Route::get('/', function () {
@@ -39,4 +42,28 @@ href='https://oauth.vk.com/authorize?client_id=5605200&display=popup&scope=+8192
     $data = json_decode($json, true);
 
     dd($data);
+});
+
+Route::get('/inst', function () {
+    $username = 'alexzaplitniy';
+    $password = '10121991';
+    $debug = false;
+
+    $photo = 'img/to.jpg';     // path to the photo
+    $caption = 'Hello insta';
+
+    $i = new \InstagramAPI\Instagram($debug);
+    $i->setUser($username, $password);
+
+    try {
+        $i->login();
+    } catch (Exception $e) {
+        $e->getMessage();
+        exit();
+    }
+    try {
+        $i->uploadPhoto($photo, $caption);
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
 });
