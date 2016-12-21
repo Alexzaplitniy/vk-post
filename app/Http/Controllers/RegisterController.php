@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Transformers\UserTransformer;
-use App\User;
+use App\models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUserRequest;
 

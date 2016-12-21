@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 /**
- * App\User
+ * App\models\User
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
@@ -29,6 +29,10 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Query\Builder|\App\models\User whereRememberToken($value)
  * @method static \Illuminate\Database\Query\Builder|\App\models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\models\User whereUpdatedAt($value)
+ * @property string $instargam_login
+ * @property string $instargam_password
+ * @method static \Illuminate\Database\Query\Builder|\App\models\User whereInstargamLogin($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\models\User whereInstargamPassword($value)
  */
 class User extends Authenticatable
 {
