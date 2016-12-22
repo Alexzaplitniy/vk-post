@@ -1,13 +1,14 @@
 <?php
 
-namespace App\models;
+namespace App\Models;
 
+use App\Traits\Orderable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
 /**
- * App\models\User
+ * App\Models\User
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $readNotifications
@@ -33,10 +34,15 @@ use Laravel\Passport\HasApiTokens;
  * @property string $instargam_password
  * @method static \Illuminate\Database\Query\Builder|\App\models\User whereInstargamLogin($value)
  * @method static \Illuminate\Database\Query\Builder|\App\models\User whereInstargamPassword($value)
+ * @property string $vk_token
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User whereVkToken($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User latestFirst()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\User oldestFirst()
+ * @property-read \App\Models\UserProfile $profile
  */
 class User extends Authenticatable
 {
-    use Notifiable, HasApiTokens;
+    use Notifiable, HasApiTokens, Orderable;
 
     /**
      * The attributes that are mass assignable.
@@ -59,5 +65,17 @@ class User extends Authenticatable
     public function avatar()
     {
         return 'https://www.gravatar.com/avatar/' . md5($this->email) . '?s=45&d=mm';
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function profile()
+    {
+        return $this->hasOne(UserProfile::class, 'user_id', 'id');
+    }
+
+    public function posts() {
+    	return $this->hasMany(Post::class);
     }
 }

@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Transformers\UserTransformer;
-use App\models\User;
-use Illuminate\Http\Request;
-use App\Http\Requests\StoreUserRequest;
+use App\Models\User;
+use App\Http\Requests\UserRequest;
 
+/**
+ * Class RegisterController
+ * @package App\Http\Controllers
+ */
 class RegisterController extends Controller
 {
-    public function register(StoreUserRequest $request)
+    public function register(UserRequest $request)
     {
         $user = new User;
         $user->username = $request->username;

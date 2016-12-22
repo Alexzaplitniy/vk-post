@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Http\UploadedFile;
 
+/**
+ * Class VkController
+ * @package App\Http\Controllers
+ */
 class VkController extends Controller
 {
     public function index(Request $request){

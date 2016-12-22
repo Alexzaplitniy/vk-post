@@ -1,7 +1,7 @@
 <?php
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.3.26 on 2016-12-08.
+ * Generated for Laravel 5.3.28 on 2016-12-21.
  *
  * @author Barry vd. Heuvel <barryvdh@gmail.com>
  * @see https://github.com/barryvdh/laravel-ide-helper
@@ -1399,7 +1399,7 @@ namespace {
         /**
          * Get the currently authenticated user.
          *
-         * @return \App\User|null 
+         * @return \App\models\User|null 
          * @static 
          */
         public static function user(){
@@ -1503,7 +1503,7 @@ namespace {
          *
          * @param mixed $id
          * @param bool $remember
-         * @return \App\User|false 
+         * @return \App\models\User|false 
          * @static 
          */
         public static function loginUsingId($id, $remember = false){
@@ -1514,7 +1514,7 @@ namespace {
          * Log the given user ID into the application without sessions or cookies.
          *
          * @param mixed $id
-         * @return \App\User|false 
+         * @return \App\models\User|false 
          * @static 
          */
         public static function onceUsingId($id){
@@ -1608,7 +1608,7 @@ namespace {
         /**
          * Return the currently cached user.
          *
-         * @return \App\User|null 
+         * @return \App\models\User|null 
          * @static 
          */
         public static function getUser(){
@@ -1650,7 +1650,7 @@ namespace {
         /**
          * Get the last user we attempted to authenticate.
          *
-         * @return \App\User 
+         * @return \App\models\User 
          * @static 
          */
         public static function getLastAttempted(){
@@ -1690,7 +1690,7 @@ namespace {
         /**
          * Determine if the current user is authenticated.
          *
-         * @return \App\User 
+         * @return \App\models\User 
          * @throws \Illuminate\Auth\AuthenticationException
          * @static 
          */
@@ -2928,12 +2928,13 @@ namespace {
          *
          * @param string $query
          * @param array $bindings
+         * @param bool $useReadPdo
          * @return mixed 
          * @static 
          */
-        public static function selectOne($query, $bindings = array()){
+        public static function selectOne($query, $bindings = array(), $useReadPdo = true){
             //Method inherited from \Illuminate\Database\Connection            
-            return \Illuminate\Database\MySqlConnection::selectOne($query, $bindings);
+            return \Illuminate\Database\MySqlConnection::selectOne($query, $bindings, $useReadPdo);
         }
         
         /**
@@ -6542,6 +6543,18 @@ namespace {
         }
         
         /**
+         * Set the global reply-to address and name.
+         *
+         * @param string $address
+         * @param string|null $name
+         * @return void 
+         * @static 
+         */
+        public static function alwaysReplyTo($address, $name = null){
+            \Illuminate\Mail\Mailer::alwaysReplyTo($address, $name);
+        }
+        
+        /**
          * Set the global to address and name.
          *
          * @param string $address
@@ -8833,6 +8846,8 @@ namespace {
         /**
          * Checks whether the method is safe or not.
          *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.1
+         * @param bool $andCacheable Adds the additional condition that the method should be cacheable. True by default.
          * @return bool 
          * @static 
          */
@@ -8844,6 +8859,7 @@ namespace {
         /**
          * Checks whether the method is cacheable or not.
          *
+         * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
          * @return bool 
          * @static 
          */
@@ -9310,6 +9326,17 @@ namespace {
          */
         public static function resourceParameters($parameters = array()){
             \Illuminate\Routing\Router::resourceParameters($parameters);
+        }
+        
+        /**
+         * Get or set the verbs used in the resource URIs.
+         *
+         * @param array $verbs
+         * @return array|null 
+         * @static 
+         */
+        public static function resourceVerbs($verbs = array()){
+            return \Illuminate\Routing\Router::resourceVerbs($verbs);
         }
         
         /**
@@ -11877,5 +11904,55 @@ namespace {
     }
 
 
+    class VKAPI extends \bafoed\VKAPI\Facades\VKAPI{
+        
+        /**
+         * Updates access_token
+         *
+         * @param string $token New access token
+         * @static 
+         */
+        public static function setAccessToken($token){
+            return \bafoed\VKAPI\VKAPIClass::setAccessToken($token);
+        }
+        
+        /**
+         * Updates version
+         *
+         * @param string $version New version
+         * @static 
+         */
+        public static function setVersion($version){
+            return \bafoed\VKAPI\VKAPIClass::setVersion($version);
+        }
+        
+        /**
+         * Updates VK API URL
+         *
+         * @param string $url New URL
+         * @static 
+         */
+        public static function setURL($url){
+            return \bafoed\VKAPI\VKAPIClass::setURL($url);
+        }
+        
+        /**
+         * Make request to VK API.
+         *
+         * @param string $method Method name
+         * @param array $params Method parameters
+         * @return array 
+         * @throws VkApiException
+         * @static 
+         */
+        public static function call($method, $params = null){
+            return \bafoed\VKAPI\VKAPIClass::call($method, $params);
+        }
+        
+    }
+
+
 }
+
+
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\models;
+namespace App\Models;
 
+use App\Traits\Orderable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -24,8 +25,20 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\models\Attach whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\models\Attach whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property int $ref_id
+ * @method static \Illuminate\Database\Query\Builder|\App\models\Attach whereRefId($value)
+ * @property-read \App\Models\User $user
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Attach latestFirst()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Attach oldestFirst()
  */
 class Attach extends Model
 {
-    //
+    use Orderable;
+
+    protected $fillable = ['name', 'path'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -14,10 +14,10 @@
     <body>
         <div class="flex-center position-ref full-height">
 
-			<form action="{{ action('VkController@save') }}" method="post" enctype="multipart/form-data">
+			<form action="{{ action('PostController@fileUpload') }}" method="post" enctype="multipart/form-data">
 				<input type="text" name="name">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="file" name="file[]">
+				<input type="file" name="file[]" multiple>
 				<input type="submit">
 			</form>
 

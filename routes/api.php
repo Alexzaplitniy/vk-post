@@ -13,9 +13,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
-
 Route::post('/register', 'RegisterController@register');
 
+Route::group(['prefix' => 'post'], function () {
+    Route::get('/', 'PostController@index')->middleware('auth:api');
+    Route::post('/', 'PostController@add')->middleware('auth:api');
+    Route::post('/upload', 'PostController@fileUpload')->middleware('auth:api');
+});
+
+Route::group(['prefix' => 'user'], function () {
+    Route::get('/', 'UserController@index')->middleware('auth:api');
+    Route::post('/add-instagram', 'UserController@addInstagram')->middleware('auth:api');
+});

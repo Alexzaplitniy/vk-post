@@ -11,6 +11,9 @@
 |
 */
 
+use App\Models\Post;
+use App\Models\User;
+use App\Models\UserProfile;
 use ATehnix\VkClient\Auth;
 
 use GuzzleHttp\Client as HttpClient;
@@ -66,4 +69,11 @@ Route::get('/inst', function () {
     } catch (Exception $e) {
         echo $e->getMessage();
     }
+});
+
+Route::get('/test', function () {
+    //$user = User::find(4)->load('profile')->toArray();
+    //dd($user);
+    $post = Post::find(18)->load(['user', 'user.posts.user', 'user.profile'])->toArray();
+    dd($post);
 });
