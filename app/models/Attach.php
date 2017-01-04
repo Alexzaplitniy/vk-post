@@ -30,6 +30,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \App\Models\User $user
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Attach latestFirst()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\Attach oldestFirst()
+ * @property string $instagram_name
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Attach whereInstagramName($value)
  */
 class Attach extends Model
 {

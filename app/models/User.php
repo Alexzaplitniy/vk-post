@@ -39,6 +39,7 @@ use Laravel\Passport\HasApiTokens;
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User latestFirst()
  * @method static \Illuminate\Database\Query\Builder|\App\Models\User oldestFirst()
  * @property-read \App\Models\UserProfile $profile
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Post[] $posts
  */
 class User extends Authenticatable
 {

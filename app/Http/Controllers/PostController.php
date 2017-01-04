@@ -8,6 +8,7 @@ use App\Http\Requests\PostRequest;
 use App\Transformers\PostTransformer;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Image;
 use Response;
 use Storage;
 
@@ -52,15 +53,22 @@ class PostController extends Controller
     public function fileUpload(Request $request)
     {
         $photoIds = [];
-        //dd($request->all());
-        if ( !empty($request->all()) ) {
-            foreach ($request->all() as $file) {
+        //dd($request->allFiles());
+        if ( !empty($request->file('file')) ) {
+            foreach ($request->file('file') as $file) {
                 /** @var UploadedFile $file */
                 list($width, $height) = getimagesize($file);
                 Storage::put('uploads/images/' . $file->getClientOriginalName(), file_get_contents($file));
 
+                // make photo to a instagram
+                $img = Image::make($file);
+                $img->fit(640, 640);
+                $payload = (string) $img->encode();
+                Storage::put('uploads/images/' . 'instagram_' . $file->getClientOriginalName(), $payload);
+
                 $image = new Attach;
                 $image->name = $file->getClientOriginalName();
+                $image->instagram_name = 'instagram_' . $file->getClientOriginalName();
                 $image->user()->associate($request->user());
                 $image->width = $width;
                 $image->height = $height;

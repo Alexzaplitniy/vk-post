@@ -168,6 +168,7 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Laravel\Passport\PassportServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         ATehnix\LaravelVkRequester\VkRequesterServiceProvider::class,
         bafoed\VKAPI\VKAPIServiceProvider::class,
 
@@ -228,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'VKAPI'     => bafoed\VKAPI\Facades\VKAPI::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

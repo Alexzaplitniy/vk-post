@@ -52,7 +52,7 @@ Route::get('/inst', function () {
     $password = '10121991';
     $debug = false;
 
-    $photo = 'img/to.jpg';     // path to the photo
+    $photo = 'images/pktBOQS54uE.jpg';     // path to the photo
     $caption = 'Hello insta';
 
     $i = new \InstagramAPI\Instagram($debug);

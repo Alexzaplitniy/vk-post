@@ -15,7 +15,8 @@
         "guzzlehttp/guzzle": "^6.2",
         "bafoed/vkapi": "^1.0@dev",
         "doctrine/dbal": "^2.5",
-        "mgp25/instagram-php": "v1.6.0.2"
+        "mgp25/instagram-php": "v1.6.0.2",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

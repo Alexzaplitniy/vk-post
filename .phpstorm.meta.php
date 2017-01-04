@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-12-21.
+    * Generated on 2016-12-23.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -42,6 +42,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
             'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'image' instanceof \Intervention\Image\ImageManager,
             'ATehnix\VkClient\Client' instanceof \ATehnix\VkClient\Client,
             'ATehnix\VkClient\Auth' instanceof \ATehnix\VkClient\Auth,
             'VKAPI' instanceof \bafoed\VKAPI\VKAPIClass,
@@ -163,6 +164,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
             'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'image' instanceof \Intervention\Image\ImageManager,
             'ATehnix\VkClient\Client' instanceof \ATehnix\VkClient\Client,
             'ATehnix\VkClient\Auth' instanceof \ATehnix\VkClient\Auth,
             'VKAPI' instanceof \bafoed\VKAPI\VKAPIClass,
@@ -284,6 +286,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
             'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'image' instanceof \Intervention\Image\ImageManager,
             'ATehnix\VkClient\Client' instanceof \ATehnix\VkClient\Client,
             'ATehnix\VkClient\Auth' instanceof \ATehnix\VkClient\Auth,
             'VKAPI' instanceof \bafoed\VKAPI\VKAPIClass,
@@ -405,6 +408,7 @@ namespace PHPSTORM_META {
             'view' instanceof \Illuminate\View\Factory,
             'League\OAuth2\Server\AuthorizationServer' instanceof \League\OAuth2\Server\AuthorizationServer,
             'League\OAuth2\Server\ResourceServer' instanceof \League\OAuth2\Server\ResourceServer,
+            'image' instanceof \Intervention\Image\ImageManager,
             'ATehnix\VkClient\Client' instanceof \ATehnix\VkClient\Client,
             'ATehnix\VkClient\Auth' instanceof \ATehnix\VkClient\Auth,
             'VKAPI' instanceof \bafoed\VKAPI\VKAPIClass,
