@@ -6,6 +6,7 @@ use App\Models\Attach;
 use App\Models\Post;
 use App\Http\Requests\PostRequest;
 use App\Transformers\PostTransformer;
+use Cache;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Image;
@@ -20,16 +21,25 @@ class PostController extends Controller
 {
     public function index(Request $request)
     {
-    	$post = Post::where('user_id', $request->user()->id)->get();
-        return fractal()
-            ->collection($post)
-            ->parseIncludes(['user', 'attaches'])
-            ->transformWith(new PostTransformer)
-            ->toArray();
+    	if (Cache::has('postList')) {
+            return Cache::get('postList');
+    	} else {
+            $post = Post::where('user_id', $request->user()->id)->get();
+            $fractal = fractal()
+                ->collection($post)
+                ->parseIncludes(['user.userProfile', 'attaches', ])
+                ->transformWith(new PostTransformer)
+                ->toArray();
+
+            Cache::put('postList', $fractal, 1);
+
+            return $fractal;
+        }
     }
 
     /**
      * @param PostRequest $request
+     * @return array
      */
     public function add(PostRequest $request)
     {

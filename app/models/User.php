@@ -76,6 +76,14 @@ class User extends Authenticatable
         return $this->hasOne(UserProfile::class, 'user_id', 'id');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function prof()
+    {
+        return $this->belongsTo(UserProfile::class, 'user_id');
+    }
+
     public function posts() {
     	return $this->hasMany(Post::class);
     }

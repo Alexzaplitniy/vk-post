@@ -16,6 +16,7 @@ class UserController extends Controller
     public function index(Request $request) {
         return fractal()
             ->item($request->user())
+            ->parseIncludes(['userProfile', 'post.attaches', 'post.user.post'])
             ->transformWith(new UserTransformer)
             ->toArray();
     }
@@ -30,6 +31,7 @@ class UserController extends Controller
 
         return fractal()
             ->item($user)
+            ->parseIncludes(['userProfile'])
             ->transformWith(new UserTransformer)
             ->toArray();
     }

@@ -10,7 +10,7 @@ use League\Fractal\TransformerAbstract;
  */
 class UserTransformer extends TransformerAbstract
 {
-    protected $defaultIncludes = ['userProfile', 'post'];
+    protected $availableIncludes = ['userProfile', 'post'];
 
     public function transform(User $user)
     {
